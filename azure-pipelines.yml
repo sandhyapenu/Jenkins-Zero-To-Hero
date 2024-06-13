@@ -1,0 +1,21 @@
+pool:
+  name: default
+
+stages:
+  - stage: stage1
+    jobs:
+      - job: job1
+  - stage: stage2
+    dependsOn: stage1
+    jobs:
+      - job: job2
+  - stage: stage3
+    dependsOn: stage1
+    jobs:
+      - job: job3
+  - stage: stage4
+    dependsOn: 
+      - stage2
+      - stage3
+    jobs:
+      - job: job4
